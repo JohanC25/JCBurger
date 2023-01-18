@@ -21,8 +21,14 @@ namespace JCBurger.Data
         public int AddNewBurger(JCBurgers burger)
         {
             Init();
-            int result = conn.Insert(burger);
-            return result;
+            if(burger.Id != 0)
+            {
+                return conn.Update(burger);
+            }
+            else
+            {
+                return conn.Insert(burger);
+            }
         }
         public List<JCBurgers> GetAllBurgers()
         {

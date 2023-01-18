@@ -7,24 +7,17 @@ public partial class JCBurgerListPage : ContentPage
 	public JCBurgerListPage()
 	{
 		InitializeComponent();
-        List<JCBurgers> burger = App.BurgerRepo.GetAllBurgers();
-        burgerList.ItemsSource = burger;
+        BindingContext = this;
     }
 
-    async void OnItemAdded(object sender, EventArgs e)
+    public void OnItemAdded(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//JCBurgerItemPage");
+        Shell.Current.GoToAsync(nameof(JCBurgerItemPage),true,new Dictionary<string, object> { ["Item"] = new JCBurgers()});
     }
-    public void JCActualizar()
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         List<JCBurgers> burger = App.BurgerRepo.GetAllBurgers();
         burgerList.ItemsSource = burger;
-    }
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        {
-            JCActualizar();
-        }
     }
 }
