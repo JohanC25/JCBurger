@@ -30,6 +30,7 @@ namespace JCBurger.Data
                 return conn.Insert(burger);
             }
         }
+
         public List<JCBurgers> GetAllBurgers()
         {
             Init();
@@ -37,5 +38,10 @@ namespace JCBurger.Data
             return burgers;
         }
 
+        public int DeleteItem(JCBurgers item)
+        {
+            Init();
+            return conn.Delete(item);
+        }
     }
 }
