@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="JCBurger.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:JCBurger"
+    xmlns:views="clr-namespace:JCBurger.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" /> -->
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:JCBurgerListPage}"
+        Route="JCBurgerListPage" />
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:JCBurgerItemPage}"
+        Route="JCBurgerItemPage" />
+
+</Shell>
