@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:JCBurger.Models"
              x:Class="JCBurger.Views.JCBurgerItemPage"
-             Title="JCBurgerItemPage">
+             Title="Burgers Add/Edit">
     <ScrollView>
         <VerticalStackLayout Padding="20"
 			                 Spacing="10"
@@ -13,9 +13,11 @@
             <Label Text="Descripción" />
             <Entry x:Name="descB" Text="{Binding JCDescription}" />
             <Label Text="¿Con queso extra?" />
-            <CheckBox IsChecked="{Binding JCWithExtraCheese}" />
+            <CheckBox x:Name="check" IsChecked="{Binding JCWithExtraCheese}" />
             <Button Text="Guardar"
 		            Clicked="OnSaveClicked" />
+            <Button Text="Borrar"
+                    Clicked="OnDeleteClicked" />
             <Button Text="Cancelar"
 		            Clicked="OnCancelClicked" />
         </VerticalStackLayout>

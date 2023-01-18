@@ -12,19 +12,30 @@ public partial class JCBurgerListPage : ContentPage
         burgerList.ItemsSource = burger;
     }
 
-    public void OnItemAdded(object sender, EventArgs e)
+    async void OnItemAdded(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(JCBurgerItemPage),true,new Dictionary<string, object> { ["Item"] = new JCBurgers()});
+        await Shell.Current.GoToAsync(nameof(JCBurgerItemPage), true, new Dictionary<string, object> 
+        {
+            ["Item"] = new JCBurgers()
+        });
     }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    public void Update()
     {
         List<JCBurgers> burger = App.BurgerRepo.GetAllBurgers();
-        burgerList.ItemsSource = burger;
+        burgerList.ItemsSource= burger;
+    }
+
+    protected override void OnAppearing()
+    {
+        Update();
     }
 
     async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(JCBurgerItemPage), true, new Dictionary<string, object> { ["Item"] = (JCBurgers)e.CurrentSelection.FirstOrDefault() });
+        await Shell.Current.GoToAsync(nameof(JCBurgerItemPage), true, new Dictionary<string, object> 
+        { 
+            ["Item"] = (JCBurgers)e.CurrentSelection.FirstOrDefault()
+        });
     }
 }

@@ -20,11 +20,17 @@ public partial class JCBurgerItemPage : ContentPage
 	private void OnSaveClicked(object sender, EventArgs e)
 	{
         App.BurgerRepo.AddNewBurger(Item);
-        Shell.Current.GoToAsync("..");
+        Shell.Current.GoToAsync("///JCBurgerListPage");
     }
 
 	private void OnCancelClicked(object sender, EventArgs e)
 	{
-		Shell.Current.GoToAsync("..");
+		Shell.Current.GoToAsync("///JCBurgerListPage");
 	}
+
+	private void OnDeleteClicked(object sender, EventArgs e)
+	{
+		App.BurgerRepo.DeleteBurger(Item);
+        Shell.Current.GoToAsync("///JCBurgerListPage");
+    }
 }

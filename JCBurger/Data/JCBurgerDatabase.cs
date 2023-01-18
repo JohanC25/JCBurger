@@ -38,7 +38,7 @@ namespace JCBurger.Data
             return burgers;
         }
 
-        public int DeleteItem(JCBurgers item)
+        public int DeleteBurger(JCBurgers item)
         {
             Init();
             return conn.Delete(item);
