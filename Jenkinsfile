@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/usuario/repo.git'
+                git 'https://github.com/JohanC25/JCBurger.git'
             }
         }
         stage('Build/Run Tests') {
