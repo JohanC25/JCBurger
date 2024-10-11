@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
+        stage('Clonar el Repo') {
             steps {
                 git 'https://github.com/JohanC25/JCBurger.git'
             }
         }
-        stage('Build/Run Tests') {
+        stage('Ejecutar Pruebas') {
             steps {    
                 echo 'Compilando proyecto...'
             }
