@@ -12,5 +12,15 @@ pipeline {
                 echo 'Compilando proyecto...'
             }
         }
+        stage('Alertas') {
+            steps {    
+                echo 'Alerta de Vulnerabilidad'
+            }
+        }
+        stage('Consejos') {
+            steps {    
+                echo 'Las contraseñas son pocas seguras'
+            }
+        }
     }
 }
